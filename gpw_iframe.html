@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>gPassword Chrome</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="css/materialicons.css"/>
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/popper.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jssha.js"></script>
+    <script src="js/base64.js"></script>
+    <script src="js/gpwcore.js"></script>
+    <script src="js/messaging.js"></script>
+    <script src="js/jquery.hotkeys.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/gpw_iframe.js"></script>
+    <style>
+        .br {
+            margin: 7px 0;
+        }
+    </style>
+</head>
+<body>
+<div class="container-fluid" style="height: 180px; border: 2px solid; border-color: gray;">
+    <div class="br"></div>
+    <h5>gPassword</h5>
+    <div class="br"></div>
+    <div class="input-group">
+        <input type="password" class="form-control" placeholder="Password (alt + s)" id="password"/>
+        <span class="input-group-btn">
+            <button type="button" class="btn btn-secondary" tabindex="-1" id="visibility-button"><i class="material-icons align-text-bottom" id="visibility-icon">visibility</i></button>
+        </span>
+    </div>
+    <div class="br"></div>
+    <input type="text" class="form-control" placeholder="Key" id="key"/>
+    <div class="br" style="margin: 10px 0;"></div>
+    <div>
+        <div class="btn-group btn-group-sm float-left" id="target-length-selector" data-toggle="buttons">
+            <label class="btn btn-sm btn-secondary active" id="16">
+                <input type="radio" name="target-length"> 16
+            </label>
+            <label class="btn btn-sm btn-secondary" id="24">
+                <input type="radio" name="target-length"> 24
+            </label>
+            <label class="btn btn-sm btn-secondary" id="32">
+                <input type="radio" name="target-length"> 32
+            </label>
+        </div>
+        <div class="btn-group btn-group-sm" id="chars-selector" data-toggle="buttons" style="margin-left: 10px;">
+            <label class="btn btn-sm btn-secondary active" id="standard">
+                <input type="radio" name="chars"> Std
+            </label>
+            <label class="btn btn-sm btn-secondary" id="weaker">
+                <input type="radio" name="chars"> Weak
+            </label>
+        </div>
+        <div class="float-right">
+            <button type="button" class="btn btn-sm btn-secondary" id="gpw-copy" style="padding-top: 5px; padding-bottom: 3px;"><i class="material-icons align-text-bottom" style="font-size: 16px;" id="copy-icon">content_copy</i></button>
+        </div>
+    </div>
+</div>
+</body>
+</html>

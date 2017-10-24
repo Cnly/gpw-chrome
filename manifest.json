@@ -1,0 +1,24 @@
+{
+  "manifest_version": 2,
+  "name": "gPw Chrome",
+  "version": "0.1",
+  "description": "Chrome extension for gPassword",
+  "browser_action": {
+    "default_title": "gPassword"
+  },
+  "author": "Cnly",
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["js/jquery-3.2.1.min.js", "js/jquery-ui.min.js", "js/gpw.js", "js/jquery.hotkeys.js", "js/messaging.js", "js/common.js"],
+      "run_at": "document_end",
+      "all_frames": true
+    }
+  ],
+  "web_accessible_resources": [
+    "gpw_iframe.html"
+  ],
+  "permissions": [
+    "clipboardWrite"
+  ]
+}
