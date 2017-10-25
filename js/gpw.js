@@ -47,7 +47,7 @@ $('document').ready(function () {
     if ($passwordInputs.length !== 0) {
         $gpwDiv = $('<div>', {
             id: 'gpw-div',
-            style: 'display: none;'
+            style: 'display: none; z-index: 9999;'
         });
 
         $gpwDiv.append(
