@@ -1,6 +1,6 @@
 'use strict';
 
-var targetLength = 16;
+var targetLength = 32;
 var chars = CHARS;
 
 $('document').ready(function () {
