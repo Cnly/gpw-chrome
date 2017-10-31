@@ -32,6 +32,8 @@ function closeGpw () {
 
 $('document').ready(function () {
 
+    var activeElement = document.activeElement;
+
     var $passwordInputs = $('[type=password]');
     $passwordInputs.on('focus click', function () {
         openGpwFor(this);
@@ -61,6 +63,10 @@ $('document').ready(function () {
 
         $gpwDiv.draggable();
         $gpwDiv.insertAfter(document.body);
+    }
+
+    if ('password' === activeElement.type) {
+        openGpwFor(activeElement)
     }
 
     window.addEventListener('message', function (e) {
