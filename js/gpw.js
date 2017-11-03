@@ -49,14 +49,14 @@ $('document').ready(function () {
     if ($passwordInputs.length !== 0) {
         $gpwDiv = $('<div>', {
             id: 'gpw-div',
-            style: 'display: none; z-index: 9999;'
+            style: 'display: none; z-index: 9999; height: 180px; width: 300px; border: 2px solid; border-color: gray;'
         });
 
         $gpwDiv.append(
             $gpwFrame = $('<iframe>', {
                 src: chrome.runtime.getURL('gpw_iframe.html'),
                 id: 'gpw-iframe',
-                style: 'height: 180px;',
+                style: 'height: 180px; width: 300px;',
                 frameborder: 0,
                 scrolling: 'no'
             }));
