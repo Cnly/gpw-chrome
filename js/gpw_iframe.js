@@ -3,7 +3,7 @@
 var targetLength = 32;
 var chars = CHARS;
 
-$('document').ready(function () {
+$(document).ready(function () {
 
     var $keyElements = $('body, input');
     var $password = $('#password');

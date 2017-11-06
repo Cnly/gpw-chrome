@@ -30,7 +30,7 @@ function closeGpw () {
     hideGpw();
 }
 
-$('document').ready(function () {
+$(document).ready(function () {
 
     var activeElement = document.activeElement;
 
