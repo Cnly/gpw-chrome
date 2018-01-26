@@ -88,6 +88,20 @@ $(document).ready(function () {
         var gpw = readMessage(e, 'gpw', 'gpw');
         if (gpw) {
             $target.val(gpw);
+
+            var inputSimulatorCode = [
+                "var target = document.getElementById('{id}');".replace('{id}', targetPasswordInput.id),
+                "target.dispatchEvent(new Event('keydown', {}));",
+                "target.dispatchEvent(new Event('keyup', {}));",
+                "target.dispatchEvent(new Event('keypress', {}));",
+                "target.dispatchEvent(new Event('input', {}));",
+                "target.dispatchEvent(new Event('change', {}));"
+            ].join('\n');
+            var script = document.createElement('script');
+            script.textContent = inputSimulatorCode;
+            (document.head||document.documentElement).appendChild(script);
+            script.remove();
+
             closeGpw();
         }
         var isCloseGpw = readMessage(e, 'closeGpw', 'closeGpw');
