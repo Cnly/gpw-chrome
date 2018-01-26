@@ -2,10 +2,13 @@
 
 var $gpwDiv;
 var $gpwFrame;
+var targetPasswordInput;
 var $target;
+var globalClickHandler;
 
 function openGpwFor(target) {
 
+    targetPasswordInput = target;
     $target = $(target);
 
     $gpwDiv.css(
@@ -18,16 +21,27 @@ function openGpwFor(target) {
 
     $gpwDiv.show();
 
+    if (!globalClickHandler) {
+        $(document).mousedown(globalClickHandler = function (e) {
+            if (e.target !== targetPasswordInput) {
+                hideGpw();
+            }
+        });
+    }
+
 }
 
 function hideGpw () {
     $gpwDiv.hide();
+    $(document).off('mousedown', null, globalClickHandler);
+    globalClickHandler = null;
 }
 
 function closeGpw () {
     document.activeElement.blur();
     $target.focus();
     hideGpw();
+    $target.trigger('change');
 }
 
 $(document).ready(function () {
@@ -40,10 +54,10 @@ $(document).ready(function () {
     }).on('keydown', null, 'alt+s', function () {
         openGpwFor(this);
         sendMessage($gpwFrame[0].contentWindow, 'focus', {focus: true}, '*');
-    }).blur(function () {
-        if (this !== document.activeElement) {
-            hideGpw();
-        }
+    }).on('keydown', null, 'tab', function () {
+        hideGpw();
+    }).on('keydown', null, 'shift+tab', function () {
+        hideGpw();
     });
 
     if ($passwordInputs.length !== 0) {
