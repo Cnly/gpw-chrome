@@ -63,7 +63,7 @@ $(document).ready(function () {
     if ($passwordInputs.length !== 0) {
         $gpwDiv = $('<div>', {
             id: 'gpw-div',
-            style: 'display: none; z-index: 9999; height: 180px; width: 300px;'
+            style: 'display: none; z-index: 9999; height: 180px; width: 300px; box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.22), 0 2px 35px 0 rgba(0, 0, 0, 0.2);'
         });
 
         $gpwDiv.append(
